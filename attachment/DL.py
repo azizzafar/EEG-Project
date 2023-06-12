@@ -314,14 +314,14 @@ class EEGNet:
         """
         df = pd.concat(self.results.get('clr')).groupby(level=0).mean()[:3]
         approachs = ['EEGNet', 'EEGNet', 'EEGNet']
-        dataset = ['Standard','Standard','Standard']
+        #dataset = ['Standard','Standard','Standard']
 
         df = df.T[:5]
         df = df.T
         col = ['DLB', 'AD', 'PDD', 'PD', 'HC']
         df.columns = col        
         df['Approach'] = approachs
-        df['Dataset'] = dataset
+        #df['Dataset'] = dataset
         return df
     def clr_std(self):
         """
@@ -333,14 +333,14 @@ class EEGNet:
         """
         df = pd.concat(self.results.get('clr')).groupby(level=0).std()[:3]
         approachs = ['EEGNet', 'EEGNet', 'EEGNet']
-        dataset = ['Standard','Standard','Standard']
+        #dataset = ['Standard','Standard','Standard']
 
         df = df.T[:5]
         df = df.T
         col = ['DLB', 'AD', 'PDD', 'PD', 'HC']
         df.columns = col        
         df['Approach'] = approachs
-        df['Dataset'] = dataset
+        #df['Dataset'] = dataset
         return df
     def mean_std(self):
         dfmean = self.clr_mean()
@@ -357,7 +357,7 @@ class EEGNet:
         df_mean_std['PDD'] = (dfmean['PDD'].round(decimals = 3).astype('str')
                               + ' ( ' + dfstd['PDD'].round(decimals = 2).astype('str') + ')')
         
-        df_mean_std['Dataset'] = (dfmean['Dataset'])
+        #df_mean_std['Dataset'] = (dfmean['Dataset'])
         return df_mean_std
     
     def clr_mean_2class(self):
